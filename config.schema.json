@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Cber App domain bootstrap (backward compatible)",
+  "type": "object",
+  "required": ["orgId", "responseRandomKey", "domains"],
+  "properties": {
+    "orgId": {"type": "string", "pattern": "^[0-9]+$"},
+    "responseRandomKey": {"type": "string", "minLength": 1},
+    "domains": {"type": "string", "minLength": 1, "contentEncoding": "base64"},
+    "update_at": {
+      "type": "integer",
+      "minimum": 1000000000000,
+      "maximum": 9007199254740991,
+      "description": "Optional UTC Unix epoch milliseconds for this domain-list revision, never request time"
+    }
+  },
+  "additionalProperties": true
+}
